@@ -1,6 +1,6 @@
 # AAR
 打包aar并进行远程依赖，解决引用aar时找不到aar的远程依赖库问题
-## library Module的gradle中添加以下代码：
+## 一、在library Module的gradle中添加以下代码：
 ```
 apply plugin: 'maven'
 ext {
@@ -35,17 +35,17 @@ artifacts {
     archives androidSourcesJar
 }
 ```
-## 运行以下命令生成aar文件
+## 二、运行以下命令生成aar文件
 ```
 gradlew uploadArchives
 ```
 ![](https://github.com/MrZhousf/AAR/blob/master/pic/1.jpg?raw=true)
 
-## 上传aar文件至GitHub仓库中
+## 三、上传aar文件至GitHub仓库中
 ![](https://github.com/MrZhousf/AAR/blob/master/pic/2.jpg?raw=true)
 
-## 采用以下方式进行远程aar引用
-在项目的gradle中添加：
+## 四、引用远程aar
+1.在项目的gradle中添加：
 ```
 allprojects {
     repositories {
@@ -55,7 +55,7 @@ allprojects {
     }
 }
 ```
-在需要引用项目的gradle中添加：
+2.在需要引用项目的gradle中添加：
 ```
 compile 'zhousf.lib:aar:1.0.1'
 ```
